@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.parstagram.fragments.ComposeFragment;
+import com.example.parstagram.fragments.PostFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -55,31 +56,19 @@ public class MainActivity extends AppCompatActivity {
         //Used to get post
         //queryPosts();
 
-//        btnFeed.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(MainActivity.this, FeedActivity.class);
-//                startActivity(i);
-//            }
-//        });
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Fragment fragment;
                 switch (menuItem.getItemId()) {
-                    // TODO: update fragment
                     case R.id.action_home:
-                        Toast.makeText(MainActivity.this, "Home!", Toast.LENGTH_SHORT).show();
-                        fragment = new ComposeFragment();
+                        fragment = new PostFragment();
                         break;
                     case R.id.action_compose:
-                        Toast.makeText(MainActivity.this, "Compose!", Toast.LENGTH_SHORT).show();
                         fragment = new ComposeFragment();
                         break;
                     case R.id.action_profile:
-                        Toast.makeText(MainActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
                     default:
-                        // TODO: update fragment
                         fragment = new ComposeFragment();
                         break;
                 }
